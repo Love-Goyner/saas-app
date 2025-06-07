@@ -1,13 +1,49 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
+import CompanionCard from "@/components/CompanionCard";
+import CompanionsList from "@/components/CompanionsList";
+import CTA from "@/components/CTA";
+import React from "react";
 
 const Page = () => {
   return (
-    <div>
-      <h1 className='text-2xl underline'>Hello</h1>
-      <Button className='ml-2'>Click Me</Button>
-    </div>
-  )
-}
+    <main>
+      <h1>Popular Companions</h1>
 
-export default Page
+      <section className="home-section">
+        <CompanionCard 
+          id="1"
+          name="Math Companion"
+          topic="Algebra Basics"
+          subject="Mathematics"
+          duration={30}
+          color="#f0f0f0"
+          bookmarked={false}
+        />
+        <CompanionCard 
+          id="1"
+          name="Math Companion"
+          topic="Algebra Basics"
+          subject="Mathematics"
+          duration={30}
+          color="#f0f0f0"
+          bookmarked={false}
+        />
+        <CompanionCard 
+          id="1"
+          name="Math Companion"
+          topic="Algebra Basics"
+          subject="Mathematics"
+          duration={30}
+          color="#f0f0f0"
+          bookmarked={false}
+        />
+      </section>
+
+      <section className="home-section">
+        <CompanionsList />
+        <CTA />
+      </section>
+    </main>
+  );
+};
+
+export default Page;
