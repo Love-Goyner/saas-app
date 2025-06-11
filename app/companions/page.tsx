@@ -2,6 +2,7 @@ import { getAllCompanions } from "@/lib/actions/companion.actions";
 import CompanionCard from "@/components/CompanionCard";
 import SearchInput from "@/components/SearchInput";
 import SubjectFilter from "@/components/SubjectFilter";
+import { getSubjectColor } from "@/lib/utils";
 
 const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
   const filters = await searchParams;
@@ -24,6 +25,7 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
           <CompanionCard
             key={companion.id}
             {...companion}
+            color={getSubjectColor(companion.subject)}
           />
         ))}
       </section>

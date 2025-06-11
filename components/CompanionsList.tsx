@@ -22,6 +22,10 @@ const CompanionsList = ({
   companions,
   classNames,
 }: CompanionsListProps) => {
+
+
+  console.log("Companions List Rendered", companions);
+  
   return (
     <article className={cn("companion-list mb-2", classNames)}>
       <h2 className="font-bold text-3xl">{title}</h2>
