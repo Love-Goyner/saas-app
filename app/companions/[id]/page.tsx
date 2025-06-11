@@ -1,3 +1,4 @@
+import CompanionComponent from "@/components/CompanionComponent";
 import { getCompanion } from "@/lib/actions/companion.actions";
 import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
@@ -15,16 +16,13 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
   if (!user) redirect("/sign-in");
   if (!companion) redirect("/companions");
 
-   const { name, subject, title, topic, duration } = companion;
+  const { name, subject, title, topic, duration } = companion;
 
   return (
     <main>
       <article className="flex rounded-border justify-between p-6 max-md:flex-col">
         <div className="flex items-center gap-2">
-          <div
-            className="size-[72px] flex items-center justify-center rounded-lg max-md:hidden"
-           
-          >
+          <div className="size-[72px] flex items-center justify-center rounded-lg max-md:hidden">
             <Image
               src={`/icons/${subject}.svg`}
               alt={subject}
@@ -45,6 +43,12 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
           {duration} minutes
         </div>
       </article>
+      <CompanionComponent
+        {...companion}
+        companionId={id}
+        userName={user.firstName!}
+        userImage={user.imageUrl!}
+      />
     </main>
   );
 };
