@@ -55,8 +55,7 @@ export const configureAssistant = (voice: string, style: string) => {
         },
       ],
     },
-    clientMessages: [],
-    serverMessages: [],
+    // clientMessages and serverMessages removed to fix type error
   };
   return vapiAssistant;
 };
